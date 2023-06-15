@@ -1,50 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 
-.header{
-    padding-top: 30px;
+html{
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
     min-height: 100vh;
     width: 100%;
-    text-align: center;
-    font-size: x-large;
-    font-family: 'Google Sans', sans-serif;
-}
-nav{
-    display:flex;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
+    justify-content: center;
+
 }
-.nav-links{
-    flex: 1;
-    text-align: center;
-    font-family: 'Google Sans', sans-serif;
-}
-.nav-links ul li{
-    list-style:none;
-    display: inline-block;
-    padding: 8px 12px;
+
+/* Hero Section */
+#hero{
+    background-image: url(./img/istockphoto1.jpg) ;
+    background-size: cover ;
+    background-position:top center ;
     position: relative;
 }
-.nav-links ul li a{
-    color:#000;
-    text-decoration: none;
-    font-size: 13px;
-}
-.publication-authors{
-    font-family: 'Google Sans', sans-serif;
-}
-.publication-authors a{
-    color: hsl(204, 86%, 53%);
-}
-.publication-authors a:hover{
-    text-decoration: underline;
-}
-.author-block{
-    display: inline-block;
-    font-size: 16px;
-}
-.department-block{
-    font-size: 16px;
-}
+/* End Hero Section */
