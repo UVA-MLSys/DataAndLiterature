@@ -1,6 +1,57 @@
-*{
-    margin:0;
-    padding:0;
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+}
+a {
+	text-decoration: none;
+}
+.container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 0.05rem;
+}
+.section-title {
+	font-size: 4rem;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+    font-weight: bold;
+}
+.section-title span {
+	color: crimson;
+}
+
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+.brand h1 span {
+	color: crimson;
 }
 
 .header{
@@ -48,3 +99,43 @@ nav{
 .department-block{
     font-size: 16px;
 }
+
+/* Result Section */
+#about .about {
+	flex-direction: column-reverse;
+	text-align: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 100px 20px;
+}
+#about .col-right {
+	width: 100%;
+}
+#about .col-right h2 {
+	font-size: 1.8rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	margin-bottom: 10px;
+}
+#about .graphs {
+    font-size: 1.4rem;
+    padding-top: 50px;
+}
+#about .graphimg {
+	max-height: 700px;
+	max-width: 700px;
+}
+#about .ground-truth {
+	padding-bottom: 60px;
+}
+#about .benchmark {
+	padding-bottom: 60px;
+}
+#about .temporal-patterns img{
+	padding-bottom: 60px;
+}
+#about .spatial-patterns img{
+	padding-bottom: 60px;
+}
+
+/* End Result Section */
