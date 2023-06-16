@@ -43,5 +43,134 @@
                 </div>
             </nav>
         </section>
+
+        <!-- Paper Section -->
+
+        <section id="paper">
+            
+                <div class ="paper-header">
+                    <div>
+                        <h1 class="section-title">Papers</h1>
+                    </div>
+                </div> 
+                <div class = "paper-body">
+                    <h2 class="section-heading">Population Age Group Sensitivity for COVID-19 Infections with Deep Learning</h2>
+                    <a href="IEEE_Feature_Sensitivity.pdf" target="_blank" download> Download the paper here </a>
+                    <p><b>Citation: </b> [To be added later] </p>
+                    <p><b>Abstract: </b> The COVID-19 pandemic has created unprecedented challenges for governments and healthcare systems worldwide, highlighting the critical importance of understanding the factors that contribute to virus transmission. This study aimed to identify the most influential age groups in COVID-19 infection rates at the US county level using the Modified Morris Method and deep learning for time-series. Our approach involved training the state-of-the-art time-series model Temporal Fusion Transformer on different age groups as a static feature and the population vaccination status as the dynamic feature. We analyzed the impact of those age groups on COVID-19 infection rates by perturbing individual input features and ranked them based on their Morris sensitivity scores, which quantify their contribution to COVID-19 transmission rates. The findings are verified using ground truth data from the CDC and US Census, which provide the true infection rates for each age group. The results suggest that young adults were the most influential age group in COVID-19 transmission at the county level between March 1, 2020 and November 27, 2021. Using these results can inform public health policies and interventions, such as targeted vaccination strategies, to better control the spread of the virus. Our approach demonstrates the utility of feature sensitivity analysis in identifying critical factors contributing to COVID-19 transmission and can be applied in other public health domains. </p>
+                </div>
+                <div class = "paper-body">
+                    <h2 class="section-heading">Interpreting County-Level COVID-19 Infections
+                        using Deep Learning for Time Series
+                    </h2>
+                    <a href="IEEE_Covid_Deep_Learning.pdf" target="_blank" download> Download the paper here </a>
+                    <p><b>Citation: </b> [To be added later] </p>
+                    <p><b>Abstract: </b> Deep Learning for Time-series plays a key role in
+                        AI for healthcare. To predict the progress of infectious disease
+                        outbreaks and demonstrate clear population-level impact, more
+                        granular analyses are urgently needed that control for important and potentially confounding county-level socioeconomic and
+                        health factors. We forecast US county-level COVID-19 infections
+                        using the Temporal Fusion Transformer (TFT). We focus on
+                        heterogeneous time-series deep learning model prediction while
+                        interpreting the complex spatiotemporal features learned from
+                        the data. The significance of the work is grounded in a real-world
+                        COVID-19 infection prediction with highly non-stationary, finely
+                        granular, and heterogeneous data. 1) Our model can capture the
+                        detailed daily changes of temporal and spatial model behaviors
+                        and achieves better prediction performance compared to other
+                        time-series models. 2) We analyzed the attention patterns from
+                        TFT to interpret the temporal and spatial patterns learned by the
+                        model. 3) We collected around 2.5 years of socioeconomic and
+                        health features for 3142 US counties, such as observed cases,
+                        and a number of static (age distribution and health disparity)
+                        and dynamic features (vaccination, disease spread, transmissible
+                        cases, and social distancing). Using the proposed framework,
+                        we have shown that our model can learn complex interactions.
+                        Interpreting different impacts at the county level would be crucial
+                        for understanding the infection process that can help effective
+                        public health decision-making.</p>
+                </div>      
+            </div>
+        </section>
+        <!-- End Paper Section -->
+
+
+
+
+        <!-- Data Section -->
+        <section id="data">
+                <div class="data-header">
+                    <div>
+                        <h1 class="section-title">Data</h1>
+                    </div>
+                </div>
+                <div class="data-body">
+                    <h2 class="data-heading"> Features </h2>
+                    <p>Note that, past values of target and known futures are also used as observed inputs by TFT.</p>
+                    <h2 class=""> Details of Features </h2>
+                    <table border="2">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Type</th>
+                            <th>Update Frequency</th>
+                            <th>Description/Rationale</th>
+                            <th>Source(s)</th>
+                        </tr>
+                        <tr>
+                            <td><b>Age Distribution</b> (% of age 65 and over)</td>
+                            <td rowspan="2">Static</td>
+                            <td rowspan="2">Once</td>
+                            <td><em>Aged 65 or Older from 2016-2020 American Community Survey (ACS).</em> Older ages have been associated with more severe outcomes from COVID-19 infection.</td>
+                            <td><a href="https://svi.cdc.gov/data-and-tools-download.html" target="_blank">2020 SVI</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>Health Disparities</b> (Uninsured)</td>
+                            <td><em>Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016- 2020 ACS.</em> Individuals without insurance are more likely to be undercounted in infection statistics, and may have more severe outcomes due to lack of treatment.</td>
+                            <td><a href="https://svi.cdc.gov/data-and-tools-download.html" target="_blank">2020 SVI</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>Transmissible Cases</b></td>
+                            <td rowspan="4">Observed</td>
+                            <td rowspan="7">Daily</td>
+                            <td><em>Cases from the last 14 days per 100k population.</em> Because of the 14-day incubation period, the cases identified in that time period are the most likely to be transmissible. This metric is the number of such "contagious" individuals relative to the population, so a greater number indicates more likely continued spread of disease.</td>
+                            <td><a href="https://usafacts.org/issues/coronavirus/" target="_blank">USA Facts</a>, <a href="https://svi.cdc.gov/data-and-tools-download.html" target="_blank">2020 SVI</a> (for population estimate)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Disease Spread</b></td>
+                            <td><em>Cases that are from the last 14 days (one incubation period) divided by cases from the last 28 days .</em> Because COVID-19 is thought to have an incubation period of about 14 days, only a sustained decline in new infections over 2 weeks is sufficient to signal reduction in disease spread. This metric is always between 0 and 1, with values near 1 during exponential growth phase, and declining linearly to zero over 14 days if there are no new infections.</td>
+                            <td><a href="https://usafacts.org/issues/coronavirus/" target="_blank">USA Facts</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Social Distancing</strong></td>
+                            <td><em>Unacast social distancing scoreboard grade is assigned by looking at the change in overall distance travelled and the change in nonessential visits relative to baseline (previous year), based on cell phone mobility data</em>. The grade is converted to a numerical score, with higher values being less social distancing (worse score) is expected to increase the spread of infection because more people are interacting with other.</td>
+                            <td><a href="https://www.unacast.com/covid19/social-distancing-scoreboard" target="_blank">Unacast</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vaccination Full Dose</strong><br>(Series_Complete_Pop_Pct)</td>
+                            <td> Percent of people who are fully vaccinated (have second dose of a two-dose vaccine or one dose of a single-dose vaccine) based on the jurisdiction and county where recipient lives.</td>
+                            <td><a href="https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh" target="_blank">CDC</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>SinWeekly</strong></td>
+                            <td rowspan="2">Known Future</td>
+                            <td> <em>Sin (day of the week / 7) </em>.</td>
+                            <td rowspan="2">Date</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CosWeekly</strong></td>
+                            <td> <em>Cos (day of the week / 7) </em>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Case</strong></td>
+                            <td>Target</td>
+                            <td> COVID-19 infection at county level.</td>
+                            <td><a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/" target="_blank">USA Facts</a></td>
+                        </tr>
+                    </table>
+                </div>
+        </section>
+
+        <!-- End Data Section -->
+
     </body>
 </html>

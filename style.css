@@ -48,3 +48,92 @@ nav{
 .department-block{
     font-size: 16px;
 }
+.container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+
+.section-heading {
+	font-size: 1rem;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+	text-align: center;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+
+/* Paper Section */
+#paper .paper-header {
+    margin-bottom: 50px;
+    text-align: center;
+
+}
+
+#paper .paper-body {
+    max-width: 500px;
+	margin: 0 auto;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    text-align: center;
+
+}
+
+/* End Paper Section */
+
+
+
+
+
+/* Data Section */
+#data .data-header {
+    margin-bottom: 50px;
+    text-align: center;
+
+}
+
+#data .data-body {
+    max-width: 500px;
+	margin: 0 auto;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+
+}
+
+#data .data-heading {
+    font-size: 1.5rem;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+	text-align: center;
+}
+/* End Data Section */
