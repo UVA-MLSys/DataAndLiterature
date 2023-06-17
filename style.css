@@ -104,6 +104,43 @@ a{
 
 /* End Hero Section */
 
+/* Project Section */
+#project{
+    flex-direction: column;
+
+}
+#project .project{
+    flex-direction: column;
+    text-align: center;
+    margin:0 auto;
+    padding: 100px 0;
+
+}
+
+#project .section-title {
+    font-size: 4rem;
+    font-weight:  300;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: -420px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    vertical-align: top;
+    
+}
+
+#project .project-description p{
+    font-size: 1.4rem;
+    margin-top: -330px;
+    line-height: 2.5rem;
+    font-weight:  300;
+    letter-spacing: 0.05rem;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+/* End Project Section */
+
 /*Keyframes*/
 @keyframes text_reveal_box {
     50% {
