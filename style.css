@@ -1,4 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Montserrat:wght@300;400;700&display=swap');
+
+
 * {
 	padding: 0;
 	margin: 0;
@@ -52,53 +55,164 @@ p {
 }
 .brand h1 span {
 	color: crimson;
+
 }
 
-.header{
-    padding-top: 30px;
+
+
+a{
+    text-decoration: none;
+}
+
+.container{
     min-height: 100vh;
     width: 100%;
-    text-align: center;
-    font-size: x-large;
-    font-family: 'Google Sans', sans-serif;
-}
-nav{
-    display:flex;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
+    justify-content: center;
+
 }
-.nav-links{
-    flex: 1;
-    text-align: center;
-    font-family: 'Google Sans', sans-serif;
-}
-.nav-links ul li{
-    list-style:none;
-    display: inline-block;
-    padding: 8px 12px;
+
+/* Hero Section */
+#hero {
+    background-image: url(./img/covidthing.jpg) ;
+    background-size: cover ;
+    background-position:top center ;
     position: relative;
+    z-index: 1;
 }
-.nav-links ul li a{
-    color:#000;
-    text-decoration: none;
-    font-size: 13px;
+
+.logo{
+    width: 100px;
+    display: inline-flex;
 }
-.publication-authors{
-    font-family: 'Google Sans', sans-serif;
+
+.logo img{
+    margin: auto 5px;
+    float: right;
+    width: 300px;
+    height: 50px;
 }
-.publication-authors a{
-    color: hsl(204, 86%, 53%);
+
+#hero::after {
+    content:'' ;
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .50;
+    z-index: -1;
+    
+    
 }
-.publication-authors a:hover{
-    text-decoration: underline;
+
+#hero h1{
+    display:inline;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation:  text_reveal .5s ease forwards;
+    animation-delay: 1s;
+    font-family: 'Inconsolata', sans-serif;
 }
-.author-block{
+
+#hero h1 span{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: brown;
+    animation: text_reveal_box 1s ease;
+    animation-delay: 1s;
+
+}
+
+#hero .cta{
     display: inline-block;
-    font-size: 16px;
+    padding: 20px 100px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid lightslategray;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 300px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+
 }
-.department-block{
-    font-size: 16px;
+
+#hero .cta:hover{
+    color: white;
+    background-color: lightslategrey;
 }
+
+
+/* End Hero Section */
+
+/* Project Section */
+#project{
+    flex-direction: column;
+
+}
+#project .project{
+    flex-direction: column;
+    text-align: center;
+    margin:0 auto;
+    padding: 100px 0;
+
+}
+
+#project .section-title {
+    font-size: 4rem;
+    font-weight:  300;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: -420px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    vertical-align: top;
+    
+}
+
+#project .project-description p{
+    font-size: 1.4rem;
+    margin-top: -330px;
+    line-height: 2.5rem;
+    font-weight:  300;
+    letter-spacing: 0.05rem;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+/* End Project Section */
+
+/*Keyframes*/
+@keyframes text_reveal_box {
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width:0;
+        left:100%;
+    }
+}
+
+@keyframes text_reveal{
+    100% {
+        color:ghostwhite;
+    }
+}
+
+/*End Keyframes*/
+
 
 
 /* Result Section */
@@ -230,3 +344,4 @@ td, th {
 	text-align: center;
 }
 /* End Data Section */
+
