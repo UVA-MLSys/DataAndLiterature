@@ -43,3 +43,12 @@ nav{
 .department-block{
     font-size: 16px;
 }
+
+
+.logo { 
+    width: 600px; 
+    height: 100px; 
+    background-size: cover ;
+    background-image: url(./img/UVAdatascience.png); 
+    position: absolute;
+}
