@@ -5,114 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>UVA GPCE</title>
+    <title>COVID-19 Infection Modeling</title>
 </head>
-<body>
-    <h1>GPCE HEADING</h1>
+<body id="page-top">
+    <!-- Header -->
+    <section id="header">
+        <div class="header-container">
+            <div class="navbar">
+                <div class="title">
+                    <a href="#page-top">
+                        <h1 class = "site-title">COVID-19 INFECTION MODELING</h1>
+                    </a>
+                </div>
+                <div class="nav-list align-right">
+                    <div class="bar">
+                        <ul>
+                            <li><a href="#project" data-after="Project">Project</a></li>
+                            <li><a href="#paper" data-after="Paper">Paper</a></li>
+                            <li><a href="#result" data-after="Result">Result</a></li>
+                            <li><a href="#data" data-after="Data">Data</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Header -->
     <!--  Hero Section      -->
     <section id="hero">
                 <div class="hero container">
                     <h1>Interpreting County Level COVID-19 Infection and Feature Sensitivity using Deep Learning Time Series Model<span></span></h1>
-                    <a href="#" type="button" class="cta">Continue Reading</a>   
+                    <a href="#project" type="button" class="cta">Continue Reading</a>
                 </div>
 
             <div class="logo">
                 <img src="./img/UVAdatascience.png">
-
-<!--
-<html>
-    <head>
-        <meta charset = "utf-8">
-        <meta name="viewport" content="width=device-width" initial-scale="1">
-        <title>Data And Literature</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <section class="header">
-            <h1 class="title is-1 publication-title">Data And Literature</h1>
-            <div class="is-size-5 publication authors">
-                <span class="author-block">
-                    <a href="https://www.linkedin.com/in/ayush-karmacharya-031ba9182/" target="_blank">Ayush Karmacharya</a>
-                </span>
-                <span class="author-block">
-                    <a href="" target="_blank">George Boulos</a>
-                </span>
-                <span class="author-block">
-                    <a href="https://www.linkedin.com/in/timothysue/" target="_blank">Timothy Sue</a>
-                </span>
--->
-
             </div>
     </section>
 
     <!--  End of Hero Section -->
 
-
-
-
     <!--  Project Section      -->
     <section id = "project">
         <div class="project container">
-        <div class="project-top">
-            <h1 class="section-title"> Project</h1>
-            
-        </div> 
-        <div class="project-bottom">
-            <div class='project-description'>
-                
-                <p> This work combines sensitivity analysis 
-                    with heterogeneous time-series deep learning
-                    model prediction, which corresponds to the 
-                    interpretations of Spatio-temporal features 
-                    from what the model has actually learned. 
-                    We forecast county-level COVID-19 infection 
-                    using the Temporal Fusion Transformer (TFT). 
-                    We then use the sensitivity analysis extending 
-                    Morris Method to see how sensitive the outputs 
-                    are with respect to perturbation to our static 
-                    and dynamic input features. We have collected 
-                    more than 2.5 years of socioeconomic and health 
-                    features over 3142 US counties. Using the proposed 
-                    framework, we conduct extensive experiments and show 
-                    our model can learn complex interactions and perform 
-                    predictions for daily infection at the county level.
-                </p>
-
+            <div class="project-top">
+                <h1 class="section-title"> Project</h1>
             </div>
-
-        </div>
+            <div class="project-bottom">
+                <div class='project-description'>
+                    <p> This work combines sensitivity analysis
+                        with heterogeneous time-series deep learning
+                        model prediction, which corresponds to the
+                        interpretations of Spatio-temporal features
+                        from what the model has actually learned.
+                        We forecast county-level COVID-19 infection
+                        using the Temporal Fusion Transformer (TFT).
+                        We then use the sensitivity analysis extending
+                        Morris Method to see how sensitive the outputs
+                        are with respect to perturbation to our static
+                        and dynamic input features. We have collected
+                        more than 2.5 years of socioeconomic and health
+                        features over 3142 US counties. Using the proposed
+                        framework, we conduct extensive experiments and show
+                        our model can learn complex interactions and perform
+                        predictions for daily infection at the county level.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
     <!--  End Project Section  -->
 
-
-            <nav>
-                <div class="nav-links">
-                    <ul>
-                        <li>
-                            <a href="">
-                            <button style="background-color: #5A5A5A; color:white; border-radius: 5px; height: 30px; width:100px" >Paper</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <button style="background-color: #5A5A5A; color:white; border-radius: 5px; height: 30px; width:100px">GitHub</button>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
-
         <!-- Paper Section -->
-
         <section id="paper">
-            
+            <div>
                 <div class ="paper-header">
                     <div>
                         <h1 class="section-title">Papers</h1>
                     </div>
-                </div> 
+                </div>
                 <div class = "paper-body">
                     <h2 class="section-heading">Population Age Group Sensitivity for COVID-19 Infections with Deep Learning</h2>
                     <a href="IEEE_Feature_Sensitivity.pdf" target="_blank" download> Download the paper here </a>
@@ -149,7 +120,7 @@
                         Interpreting different impacts at the county level would be crucial
                         for understanding the infection process that can help effective
                         public health decision-making.</p>
-                </div>      
+                </div>
             </div>
         </section>
         <!-- End Paper Section -->
@@ -292,9 +263,7 @@
                     </table>
                 </div>
         </section>
-
         <!-- End Data Section -->
-
 
     </body>
 
