@@ -356,16 +356,11 @@ td, th {
     text-align: center;
 
 }
-
 /* End Paper Section */
-
-
-
-
 
 /* Data Section */
 #data .data-header {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     text-align: center;
 
 }
@@ -378,6 +373,7 @@ td, th {
     margin-left:auto;
     margin-right:auto;
     text-align: center;
+    padding-bottom: 100px;
 
 }
 
@@ -392,3 +388,40 @@ td, th {
 }
 /* End Data Section */
 
+/* Team Section */
+#team {
+}
+
+#team .team-title {
+    text-align: center;
+}
+
+#team .row {
+    font-size: large;
+    padding-left: 250px;
+    padding-right: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+#team .people {
+    display: inline-flex;
+}
+
+#team .person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 45px;
+
+}
+#team .team-img {
+    border-radius: 50%;
+    max-height: 90px;
+	max-width: 90px;
+}
+
+#team .teamLinks{
+    color: black;
+}
+/* End Team Section */
