@@ -244,6 +244,13 @@ header {
     margin-right: 150px;
 }
 
+#project .video{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+
 /* End Project Section */
 
 /*Keyframes*/
