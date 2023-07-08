@@ -242,6 +242,7 @@ header {
     letter-spacing: 0.05rem;
     margin-left: 150px;
     margin-right: 150px;
+    max-width: 800px;
 }
 
 /* End Project Section */
@@ -273,7 +274,7 @@ header {
 #result .about {
 	flex-direction: column-reverse;
 	text-align: center;
-	max-width: 1200px;
+	max-width: 800px;
 	margin: 0 auto;
 	padding: 100px 20px;
 }
