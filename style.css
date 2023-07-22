@@ -406,11 +406,17 @@ td, th {
 #selectedMedia .media-title {
     text-align: center;
 
+
+}
+
+#selectedMedia .media-container {
+    padding-bottom: 20px;
 }
 
 #selectedMedia .media {
     text-align: center;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
+    font-size: 20px;
 }
 /* End Selected Media Articles Section */
 
@@ -443,8 +449,8 @@ td, th {
 }
 #team .team-img {
     border-radius: 50%;
-    max-height: 90px;
-	max-width: 90px;
+    max-height: 100px;
+	max-width: 100px;
 }
 
 #team .teamLinks{
