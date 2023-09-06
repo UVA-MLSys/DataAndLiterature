@@ -1,71 +1,169 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "utf-8">
-        <meta name="viewport" content="width=device-width" initial-scale="1">
-        <title>Data And Literature</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <section class="header">
-            <h1 class="title is-1 publication-title">Data And Literature</h1>
-            <div class="is-size-5 publication authors">
-                <span class="author-block">
-                    <a href="" target="_blank">Ayush Karmacharya</a>
-                </span>
-                <span class="author-block">
-                    <a href="" target="_blank">George Boulos</a>
-                </span>
-                <span class="author-block">
-                    <a href="https://www.linkedin.com/in/timothysue/" target="_blank">Timothy Sue</a>
-                </span>
-            </div>
-            <div class="is-size-5 publication-authors">
-                <span class="department-block">
-                    University of Virginia, Machine Learning Systems Group<br>
-                    Charlottesville, VA<br>
-                </span>
-            </div>
-            <nav>
-                <div class="nav-links">
-                    <ul>
-                        <li>
-                            <a href="">
-                            <button style="background-color: #5A5A5A; color:white; border-radius: 5px; height: 30px; width:100px" >Paper</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <button style="background-color: #5A5A5A; color:white; border-radius: 5px; height: 30px; width:100px">GitHub</button>
-                            </a>
-                        </li>
-                    </ul>
+<html lang="en">
+<head>
+    <style>
+        .dot {
+            fill: steelblue;
+            r: 5;
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section');
+            var navLinks = document.querySelectorAll('nav a');
+
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    var destination = document.querySelector(this.getAttribute('href'));
+                    var offsetTop = destination.offsetTop;
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            window.addEventListener('scroll', function() {
+                var currentSection = null;
+
+                // Find the currently visible section
+                for (var i = sections.length - 1; i >= 0; i--) {
+                    var section = sections[i];
+                    var rect = section.getBoundingClientRect();
+
+                    if (rect.top <= 0) {
+                        currentSection = section;
+                        break;
+                    }
+                }
+
+                navLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+
+                if (currentSection) {
+                    var targetLink = document.querySelector('nav a[href="#' + currentSection.id + '"]');
+                    if (targetLink) {
+                        targetLink.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href="gpce-frontend.css">
+    <link href='https://fonts.googleapis.com/css2?family=Lora&display=swap'rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <script src="https://unpkg.com/topojson@3.0.0/dist/topojson.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>COVID-19 Infection Modeling</title>
+</head>
+<body id="page-top">
+    <!-- Header -->
+    <section id="header">
+        <div class="header-container">
+            <div class="navbar">
+                <div class="title">
+                    <a href="https://github.com/Data-ScienceHub">
+                        <div class="logo">
+                            <img src="./img/UVAdatascience.png" alt="png">
+                        </div>
+                    </a>
                 </div>
-            </nav>
-        </section>
+                <div class="nav-list align-right">
+                    <div class="bar">
+                        <ul>
+                            <li><a href="#page-top" data-after="Home">Home</a></li>
+                            <li><a href="#project" data-after="Project">Project</a></li>
+                            <li><a href="#paper" data-after="Paper">Paper</a></li>
+                            <li><a href="#result" data-after="Result">Result</a></li>
+                            <li><a href="#INTERPRETATION" data-after="Spatio-Temporal Interpretation">Interpretation</a></li>
+                            <li><a href="#data" data-after="Data">Data</a></li>
+                            <li><a href ="#selectedMedia" data-after="Selected Media">Press</a></li>
+                            <li><a href="#team" data-after="Team">Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Header -->
+    <!--  Hero Section      -->
+    <section id="hero">
+                <div class="hero container">
+                    <h1>Interpreting County Level COVID-19 Infection using Deep Learning Time Series Model<span></span></h1>
+                    <a href="#project" type="button" class="cta">Continue Reading</a>
+                </div>
+
+    </section>
+
+    <!--  End of Hero Section -->
+
+    <!--  Project Section      -->
+    <section id = "project">
+        <div class="project container">
+            <div class="project-top">
+                <h1 class="section-title"> Project</h1>
+            </div>
+            <div class="project-bottom">
+                <div class='project-description'>
+                    <p> This work combines sensitivity analysis
+                        with heterogeneous time-series deep learning
+                        model prediction, which corresponds to the
+                        interpretations of Spatio-temporal features
+                        from what the model has actually learned.
+                        We forecast county-level COVID-19 infection
+                        using the Temporal Fusion Transformer (TFT).
+                        We then use the sensitivity analysis extending
+                        Morris Method to see how sensitive the outputs
+                        are with respect to perturbation to our static
+                        and dynamic input features. We have collected
+                        more than 2.5 years of socioeconomic and health
+                        features over 3142 US counties. Using the proposed
+                        framework, we conduct extensive experiments and show
+                        our model can learn complex interactions and perform
+                        predictions for daily infection at the county level.
+                    </p>
+                </div>
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/ref11GvSm4w?si=5Cm-dmTBlbQrP1Dq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="video">
+            <iframe width="800" height="500" src="./img/AnimatedGraphs.mp4" title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+            web-share" allowfullscreen></iframe>
+
+        </div>
+    </section>
+    <!--  End Project Section  -->
 
         <!-- Paper Section -->
-
         <section id="paper">
-            
+            <div>
                 <div class ="paper-header">
                     <div>
                         <h1 class="section-title">Papers</h1>
                     </div>
-                </div> 
-                <div class = "paper-body">
-                    <h2 class="section-heading">Population Age Group Sensitivity for COVID-19 Infections with Deep Learning</h2>
-                    <a href="IEEE_Feature_Sensitivity.pdf" target="_blank" download> Download the paper here </a>
-                    <p><b>Citation: </b> [To be added later] </p>
-                    <p><b>Abstract: </b> The COVID-19 pandemic has created unprecedented challenges for governments and healthcare systems worldwide, highlighting the critical importance of understanding the factors that contribute to virus transmission. This study aimed to identify the most influential age groups in COVID-19 infection rates at the US county level using the Modified Morris Method and deep learning for time-series. Our approach involved training the state-of-the-art time-series model Temporal Fusion Transformer on different age groups as a static feature and the population vaccination status as the dynamic feature. We analyzed the impact of those age groups on COVID-19 infection rates by perturbing individual input features and ranked them based on their Morris sensitivity scores, which quantify their contribution to COVID-19 transmission rates. The findings are verified using ground truth data from the CDC and US Census, which provide the true infection rates for each age group. The results suggest that young adults were the most influential age group in COVID-19 transmission at the county level between March 1, 2020 and November 27, 2021. Using these results can inform public health policies and interventions, such as targeted vaccination strategies, to better control the spread of the virus. Our approach demonstrates the utility of feature sensitivity analysis in identifying critical factors contributing to COVID-19 transmission and can be applied in other public health domains. </p>
                 </div>
                 <div class = "paper-body">
                     <h2 class="section-heading">Interpreting County-Level COVID-19 Infections
                         using Deep Learning for Time Series
                     </h2>
                     <a href="IEEE_Covid_Deep_Learning.pdf" target="_blank" download> Download the paper here </a>
-                    <p><b>Citation: </b> [To be added later] </p>
-                    <p><b>Abstract: </b> Deep Learning for Time-series plays a key role in
+                    <p class = "abstract"><b>Abstract: </b> Deep Learning for Time-series plays a key role in
                         AI for healthcare. To predict the progress of infectious disease
                         outbreaks and demonstrate clear population-level impact, more
                         granular analyses are urgently needed that control for important and potentially confounding county-level socioeconomic and
@@ -89,12 +187,122 @@
                         Interpreting different impacts at the county level would be crucial
                         for understanding the infection process that can help effective
                         public health decision-making.</p>
-                </div>      
+                </div>
+                <div class = "paper-body">
+                    <h2 class="section-heading">Population Age Group Sensitivity for COVID-19 Infections with Deep Learning</h2>
+                    <a href="IEEE_Feature_Sensitivity.pdf" target="_blank" download> Download the paper here </a>
+                    <p class = "abstract"><b>Abstract: </b> The COVID-19 pandemic has created unprecedented challenges for governments and healthcare systems worldwide, highlighting the critical importance of understanding the factors that contribute to virus transmission. This study aimed to identify the most influential age groups in COVID-19 infection rates at the US county level using the Modified Morris Method and deep learning for time-series. Our approach involved training the state-of-the-art time-series model Temporal Fusion Transformer on different age groups as a static feature and the population vaccination status as the dynamic feature. We analyzed the impact of those age groups on COVID-19 infection rates by perturbing individual input features and ranked them based on their Morris sensitivity scores, which quantify their contribution to COVID-19 transmission rates. The findings are verified using ground truth data from the CDC and US Census, which provide the true infection rates for each age group. The results suggest that young adults were the most influential age group in COVID-19 transmission at the county level between March 1, 2020 and November 27, 2021. Using these results can inform public health policies and interventions, such as targeted vaccination strategies, to better control the spread of the virus. Our approach demonstrates the utility of feature sensitivity analysis in identifying critical factors contributing to COVID-19 transmission and can be applied in other public health domains. </p>
+                </div>
             </div>
         </section>
         <!-- End Paper Section -->
 
 
+    <!-- Result Section -->
+        <section id="result">
+            <div class="about container">
+                <div class="col-right">
+                    <h1 class="section-title">Results</h1>
+                    <h2>Results on all 3,142 US counties are listed below.</h2>
+                    <div class="graphs">
+                        <div class="ground-truth">
+                            <h1>Ground Truth</h1>
+                            <img class = "graphimg" src="./img/combined_ground_truth.jpg">
+
+                        </div>
+                        <div class = "benchmark">
+                            <h1>Benchmark</h1>
+                            <h2>Test Result comparison of TFT with five other deep learning models</h2>
+                            <img class = "graphimg" src = "./img/Test_comparison.jpg" alt="jpg">
+                        </div>
+                        <div class = "temporal-patterns">
+                            <h1>Temporal Patterns</h1>
+                            <h2>
+                                Time series data typically exhibit various temporal patterns, such as trend, seasonal,
+                                and cyclic patterns. Here we investigate how well our TFT model can learn and interpret these
+                                patterns by conducting experiments on data with these patterns.
+                            </h2>
+                            <h3>
+                                1. Attention weights aggregated by past time index showing high importance in the same day
+                                the previous week (position index -7).
+                            </h3>
+                            <img class = "graphimg" src="./img/Train_attention.jpg" alt="jpg">
+                            <h3>
+                                2. Weekly seasonality due to reporting calculated using auto-correlation at different lag days (k &#x2208 [1,21]).
+                                Our analysis shows a clear weekly periodicity, where the correlation peaks at lag day k = 7.
+                                This is attributed to weekly reporting style from hospitals, leading to less reported cases on weekends.
+                            </h3>
+                            <img class = "graphimg" src="./img/seasonal_pattern.jpg" alt="jpg">
+                            <h3>
+                                3. Cyclic holiday patterns (Thanksgiving, Christmas). During holidays, hospitals and COVID-19 test centers often
+                                have reduced staffing and operating hours, leading to fewer tests and reported case. Leading to a drop in attention
+                                for those days.
+                            </h3>
+                            <img class = "graphimg" src="./img/holiday_pattern.jpg" alt="jpg">
+                            <h3>
+                                4. Trend: TFT model's test performance on all US counties for additional data splits learning different infection trends
+                            </h3>
+                            <img class = "graphimg" src="./img/Test_splits.jpg" alt="jpg">
+                        </div>
+                        <div class = "spatial-patterns">
+                            <h1> Spatial Patterns</h1>
+                            <h2>Spatial distribution of COVID-19 cases in US counties and corresponding attention weights from TFT.</h2>
+                            <h3>
+                                1. Cumulative COVID-19 cases across US counties
+                            </h3>
+                            <img class = "graphimg" src="./img/cases_quantiles.jpg" alt="jpg">
+                            <h3>
+                                2. Avg. attention weights across US counties from TFT
+                            </h3>
+                            <img class = "graphimg" src="./img/attention_quantiles.jpg" alt = "jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Result Section -->
+        <!-- Interactive Section -->
+        <section id="INTERPRETATION">
+            <h1 class="section-title">Spatio-Temporal Interpretation</h1>
+            <h1 class = "section-heading"> Time Series Data typically exhibits temporal pattern such as trend, cyclic, and seasonal pattern. And our proposed TFT are able to detect such patterns.
+                Below are two interactive plots that respectively demonstrates cyclic holiday pattern and weekly seasonal pattern.
+            </h1>
+            <div id="interactive" style="background-color: white; height: 2000px">
+                <p> Click counties on the below U.S. map to see how our model captures spatial patterns across urban and rural counties. Data comes from our test split between 12-15-2021 and 12-29-2021. Heatmap is based on the ground-truth total sum of counties.
+                    Or Type in the County Name and State Name to see the one you are interested in!
+                    please be in the format of {State, County} e.g: Virginia, Madison
+                </p>
+                <div id="control-viz">
+                    <input id="CountyName-input" placeholder="State, County">
+                    <button id="heatmap" onclick="showheatmap()"> HeatMap of Cases</button>
+                </div>
+                <div id="legend"> </div>
+      <!--
+      <div class="county-grid">
+        <div class="tab-group">
+          <div id="county-tab-urban">
+            <button id="SaltLake" onclick="updateLineGraph('SaltLake')">Salt Lake</button>
+            <button id="Hillsborough" onclick="updateLineGraph('Hillsborough')">Hillsborough</button>
+            <button id="Multnomah" onclick="updateLineGraph('Multnomah')">Multnomah</button>
+          </div>
+        </div>
+        <div class="tab-group">
+          <div id="county-tab-rural">
+            <button id="Brunswick" onclick="updateLineGraph('Brunswick')">Brunswick</button>
+            <button id="Yancey" onclick="updateLineGraph('Yancey')">Yancey</button>
+            <button id="Ogemaw" onclick="updateLineGraph('Ogemaw')">Ogemaw</button>
+          </div>
+        </div>
+      </div>
+    -->
+                <svg id="d3-map" style="margin-top:10px"> </svg>
+                <p id="county-name"> </p>
+                <svg id="d3-interactive" style="width:1000px; height:800px"></svg>
+                <div class="tooltip" id="county-tooltip"></div>
+                <p id="placeholder" style="display:none"> </p>
+            </div>
+        </section>
+        <!-- End Interactive Section -->
 
 
         <!-- Data Section -->
@@ -105,6 +313,7 @@
                     </div>
                 </div>
                 <div class="data-body">
+                    <p>You can find our Github repo <a href="https://github.com/UVA-MLSys/gpce-covid/tree/main" target="_blank">here</a></p>
                     <h2 class="data-heading"> Features </h2>
                     <p>Note that, past values of target and known futures are also used as observed inputs by TFT.</p>
                     <h2 class=""> Details of Features </h2>
@@ -169,8 +378,124 @@
                     </table>
                 </div>
         </section>
-
         <!-- End Data Section -->
 
+        <!-- Selected Media Section -->
+        <section id="selectedMedia">
+            <div class="media-container">
+                <div class="media-header">
+                    <h1 class="section-title">Selected Media Articles</h1>
+                </div>
+            </div>
+            <div class = "media">
+                <a href="https://conferences.computer.org/icdh/2023/student_awards.html">IEEE ICDH 2023 3rd Place Prize</a>
+            </div>
+        </section>
+        <!-- End Selected Media Section -->
+
+        <!-- Team Section -->
+        <section id="team">
+            <div class="team container">
+                <div class="team-header">
+                    <h1 class="section-title">Team</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "people">
+                    <div class = person>
+                        <img class="team-img" src="./img/JFox2%20-%20Judy%20Fox.png" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.judyfox.online/">Judy Fox</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/single%20-%20Md%20Khairul%20Islam.JPG" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://sites.google.com/view/khairul-islam">Md. Khairul Islam</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/headshot%20-%20Andrej%20Erkelens.jpeg" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/andrej-erkelens/">Andrej Erkelens</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/NickProfile%20-%20Nicholas%20Daniello.png" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/nickdaniello/">Nicholas Daniello</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "people">
+                    <div class = person>
+                        <img class="team-img" src="./img/IMG_9715%20-%20Ian%20Liu.PNG" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/yingzheng-ian-liu-48b90084/">Yingzheng Liu</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/Aparna%20-%20Aparna%20Marathe.jpg" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="www.linkedin.com/in/aparnamarathe">Aparna Marathe</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/IMG_0343%20-%20Kingsley%20Kim.JPG" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/kingsleykim/">Kingsley Kim</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "people">
+                    <div class = person>
+                        <img class="team-img" src="./img/wzg6%20-%20Zhengguang%20Wang.png" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="">Zhengguang Wang</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/IMG_8110%20-%20Tracy%20Hua.jpg" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/tracy-hua/">Tracy Hua</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/IMG-1170%20-%20Luke%20Benham.jpg" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="www.linkedin.com/in/luke-benham-bb7244280">Luke Benham</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "people">
+                    <div class = person>
+                        <img class="team-img" src="./img/ID%20Photo%20UVA%20-%20Ayush%20Karmacharya.PNG" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/ayush-karmacharya-031ba9182/">Ayush Karmacharya</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/1594479822284%20-%20George%20Boulos.jpg" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="www.linkedin.com/in/gkboulos">George Boulos</a>
+                        </div>
+                    </div>
+                    <div class = person>
+                        <img class="team-img" src="./img/timothy%20sue%20headshot.jpg" alt="jpg" >
+                        <div>
+                            <a class="teamLinks" href="https://www.linkedin.com/in/timothysue/">Timothy Sue</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Team Section -->
+    <script src = "interactive/gpce.js"> </script>
     </body>
 </html>

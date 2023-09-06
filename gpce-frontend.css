@@ -1,0 +1,175 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.performance-container{
+  display: flex;
+}
+.performance-container img{
+  flex: 1;
+  width: 650px;
+  height: auto;
+}
+#county-tooltip {
+  position: absolute;
+  z-index: 9999;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  max-width: 200px;
+  display: none;
+}
+
+.Data-Split-container{
+
+}
+.Data-Split-container img{
+  width: 1200px;
+}
+
+#interactive p{
+  font-size: 19px;
+  text-align: left;
+  max-width: 900px;
+  color:black
+}
+
+.county-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+  
+.tab-group {
+  display: flex;
+}
+  
+ .tab-group > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+#INTERPRETATION {
+  height: 1900px;
+}
+
+#INTERPRETATION .plot-description {
+  align-items: center;
+  align-content: center;
+}
+
+
+#interactive{
+    display: flex; flex-direction: column; align-items: center;
+    height: 3000px;
+}
+
+
+.tab-group button{
+  width: 200px;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #464c53;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  /* Active Effect */
+  .tab-group button.active {
+    background-color: #cbd7e4;
+    color: #464c53;
+  }
+  .tab-group button:hover {
+    background-color: #cbd7e4;
+    color: #464c53;
+  }
+
+  .state{
+    fill:grey;
+  }
+
+  .county{
+    fill:none;
+    stroke: green;
+    stroke-width: 0.5;
+    pointer-events: all;
+  }
+
+  .county:hover{
+    fill:red;
+  }
+
+  .county.active{
+    fill:blue !important;;
+  }
+
+  #CountyName-input{
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    background-color: grey;
+    width: 300px;
+    height: 40px;
+  }
+
+  input::placeholder {
+    opacity: 20%;
+    color: white; /* Add your desired color here */
+    text-align: center; /* Center-align the placeholder text */
+  }
+
+#control-viz{
+    display:flex;
+    padding-top: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:20px;
+}
+
+#plot-description {
+    max-width: 1000px;
+    align-items: center;
+}
+
+#heatmap {
+  width: 260px;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #464c53;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  /* Active Effect */
+  #heatmap.active {
+    background-color: #cbd7e4;
+    color: #464c53;
+  }
+
+  #heatmap:hover {
+    background-color: #cbd7e4;
+    color: #464c53;
+  }
+
+  .text{
+    fill: black;
+    z-index:4;
+  }
+  
+  
