@@ -1,1 +1,2 @@
 # DataAndLiterature
+This is a repository for Team 4 (Data and Literature) in the AI for Science Summer Research Internship. It contains a deployed github webpage that shows results from the GPCE-COVID project done by the UVA Data Science/ML Sys team. Their original repository can be found here: https://github.com/Data-ScienceHub/gpce-covid. The webpage created can be visited through the link located in the "about" section of this repository. It contains relevant information such as their data, results, and team. It also includes a navbar for a more seamless user experience.
