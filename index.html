@@ -1,7 +1,71 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
+    <style>
+        .dot {
+            fill: steelblue;
+            r: 5;
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section');
+            var navLinks = document.querySelectorAll('nav a');
+
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    var destination = document.querySelector(this.getAttribute('href'));
+                    var offsetTop = destination.offsetTop;
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            window.addEventListener('scroll', function() {
+                var currentSection = null;
+
+                // Find the currently visible section
+                for (var i = sections.length - 1; i >= 0; i--) {
+                    var section = sections[i];
+                    var rect = section.getBoundingClientRect();
+
+                    if (rect.top <= 0) {
+                        currentSection = section;
+                        break;
+                    }
+                }
+
+                navLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+
+                if (currentSection) {
+                    var targetLink = document.querySelector('nav a[href="#' + currentSection.id + '"]');
+                    if (targetLink) {
+                        targetLink.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href="gpce-frontend.css">
+    <link href='https://fonts.googleapis.com/css2?family=Lora&display=swap'rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <script src="https://unpkg.com/topojson@3.0.0/dist/topojson.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -196,6 +260,50 @@
             </div>
         </section>
         <!-- End Result Section -->
+        <!-- Interactive Section -->
+        <section id="INTERPRETATION">
+            <h1 class="section-title">Spatio-Temporal Interpretation</h1>
+            <div class = project-description>
+                <p> Time Series Data typically exhibits temporal pattern such as trend, cyclic, and seasonal pattern. And our proposed TFT are able to detect such patterns.
+                Below are two interactive plots that respectively demonstrates cyclic holiday pattern and weekly seasonal pattern.
+                </p>
+            </div>
+            <div id="interactive" style="width: 80%; background-color: white; height: 2000px">
+                <p> Click counties on the below U.S. map to see how our model captures spatial patterns across urban and rural counties. Data comes from our test split between 12-15-2021 and 12-29-2021. Heatmap is based on the ground-truth total sum of counties.
+                    Or Type in the County Name and State Name to see the one you are interested in!
+                    please be in the format of {State, County} e.g: Virginia, Madison
+                </p>
+                <div id="control-viz">
+                    <input id="CountyName-input" placeholder="State, County">
+                    <button id="heatmap" onclick="showheatmap()"> HeatMap of Cases</button>
+                </div>
+                <div id="legend"> </div>
+      <!--
+      <div class="county-grid">
+        <div class="tab-group">
+          <div id="county-tab-urban">
+            <button id="SaltLake" onclick="updateLineGraph('SaltLake')">Salt Lake</button>
+            <button id="Hillsborough" onclick="updateLineGraph('Hillsborough')">Hillsborough</button>
+            <button id="Multnomah" onclick="updateLineGraph('Multnomah')">Multnomah</button>
+          </div>
+        </div>
+        <div class="tab-group">
+          <div id="county-tab-rural">
+            <button id="Brunswick" onclick="updateLineGraph('Brunswick')">Brunswick</button>
+            <button id="Yancey" onclick="updateLineGraph('Yancey')">Yancey</button>
+            <button id="Ogemaw" onclick="updateLineGraph('Ogemaw')">Ogemaw</button>
+          </div>
+        </div>
+      </div>
+    -->
+                <svg id="d3-map" style="margin-top:10px"> </svg>
+                <p id="county-name"> </p>
+                <svg id="d3-interactive" style="width:1000px; height:800px"></svg>
+                <div class="tooltip" id="county-tooltip"></div>
+                <p id="placeholder" style="display:none"> </p>
+            </div>
+        </section>
+        <!-- End Interactive Section -->
 
 
         <!-- Data Section -->
