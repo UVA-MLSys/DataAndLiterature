@@ -90,6 +90,7 @@
                             <li><a href="#project" data-after="Project">Project</a></li>
                             <li><a href="#paper" data-after="Paper">Paper</a></li>
                             <li><a href="#result" data-after="Result">Result</a></li>
+                            <li><a href="#INTERPRETATION" data-after="Spatio-Temporal Interpretation">Interpretation</a></li>
                             <li><a href="#data" data-after="Data">Data</a></li>
                             <li><a href ="#selectedMedia" data-after="Selected Media">Press</a></li>
                             <li><a href="#team" data-after="Team">Team</a></li>
@@ -263,12 +264,10 @@
         <!-- Interactive Section -->
         <section id="INTERPRETATION">
             <h1 class="section-title">Spatio-Temporal Interpretation</h1>
-            <div class = project-description>
-                <p> Time Series Data typically exhibits temporal pattern such as trend, cyclic, and seasonal pattern. And our proposed TFT are able to detect such patterns.
+            <h1 class = "section-heading"> Time Series Data typically exhibits temporal pattern such as trend, cyclic, and seasonal pattern. And our proposed TFT are able to detect such patterns.
                 Below are two interactive plots that respectively demonstrates cyclic holiday pattern and weekly seasonal pattern.
-                </p>
-            </div>
-            <div id="interactive" style="width: 80%; background-color: white; height: 2000px">
+            </h1>
+            <div id="interactive" style="background-color: white; height: 2000px">
                 <p> Click counties on the below U.S. map to see how our model captures spatial patterns across urban and rural counties. Data comes from our test split between 12-15-2021 and 12-29-2021. Heatmap is based on the ground-truth total sum of counties.
                     Or Type in the County Name and State Name to see the one you are interested in!
                     please be in the format of {State, County} e.g: Virginia, Madison
@@ -497,5 +496,6 @@
             </div>
         </section>
         <!-- End Team Section -->
+    <script src = "gpce.js"> </script>
     </body>
 </html>
